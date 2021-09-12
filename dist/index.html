@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue demo</title>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}}
+      <ul>
+        <li v-for="item in arr">{{item}}</li>
+      </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script type="module">
+      import mixins from "./mixins.js";
+
+      Vue.component("App", {
+        render(h) {
+          console.log(this);
+          h("p", "Hello " + this.msg);
+        },
+        data() {
+          return {
+            msg: "World",
+          };
+        },
+      });
+
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            msg: "World",
+            arr: [1, 2, 3],
+          };
+        },
+        mixins: [ mixins ],
+        mounted() {
+          setTimeout(() => {
+            this.arr.push(4);
+          }, 0);
+        },
+      });
+    </script>
+  </body>
+</html>
