@@ -27,7 +27,7 @@ import {
  * value into the final value.
  */
 const strats = config.optionMergeStrategies
-
+// console.log(`strats: ${strats}`);
 /**
  * Options with restrictions
  */
@@ -333,7 +333,7 @@ function normalizeProps (options: Object, vm: ?Component) {
  * Normalize all injections into Object-based format
  */
 function normalizeInject (options: Object, vm: ?Component) {
-  debugger
+  // debugger
   const inject = options.inject
   if (!inject) return
   const normalized = options.inject = {}
@@ -440,7 +440,7 @@ export function mergeOptions (
       }
     }
   }
-  debugger
+  // debugger
   const options = {}
   let key
   for (key in parent) {

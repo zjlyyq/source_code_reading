@@ -13,7 +13,7 @@ import { extend, mergeOptions, formatComponentName } from '../util/index'
 let uid = 0
 
 export function initMixin (Vue: Class<Component>) {
-  debugger
+  // debugger
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
     // a uid
@@ -45,6 +45,7 @@ export function initMixin (Vue: Class<Component>) {
     }
     /* istanbul ignore else */
     if (process.env.NODE_ENV !== 'production') {
+      // 开发环境才有的东西，暂时不看，可能和热加载有关
       initProxy(vm)
     } else {
       vm._renderProxy = vm
@@ -93,7 +94,7 @@ export function initInternalComponent (vm: Component, options: InternalComponent
 }
 
 export function resolveConstructorOptions (Ctor: Class<Component>) {
-  debugger
+  // debugger
   let options = Ctor.options
   if (Ctor.super) {
     // 递归处理Vue.super 上的options，不过一般不会有父类
