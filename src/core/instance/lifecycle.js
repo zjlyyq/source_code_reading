@@ -46,7 +46,7 @@ export function initLifecycle (vm: Component) {
 
   vm.$children = []
   vm.$refs = {}
-
+  // 每个实例都有一个watcher（观察者）
   vm._watcher = null
   vm._inactive = null
   vm._directInactive = false

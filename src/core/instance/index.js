@@ -13,7 +13,7 @@ function Vue (options) {
   }
   this._init(options)
 }
-
+debugger
 initMixin(Vue)
 stateMixin(Vue)
 eventsMixin(Vue)

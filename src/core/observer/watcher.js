@@ -73,9 +73,10 @@ export default class Watcher {
     this.newDeps = []
     this.depIds = new Set()
     this.newDepIds = new Set()
-    this.expression = process.env.NODE_ENV !== 'production'
+    this.expression = process.env.NODE_ENV !== 'production' 
       ? expOrFn.toString()
       : ''
+    console.log('this this.expression', this.expression);
     // parse expression for getter
     if (typeof expOrFn === 'function') {
       this.getter = expOrFn
@@ -105,6 +106,7 @@ export default class Watcher {
     const vm = this.vm
     try {
       value = this.getter.call(vm, vm)
+      debugger
     } catch (e) {
       if (this.user) {
         handleError(e, vm, `getter for watcher "${this.expression}"`)

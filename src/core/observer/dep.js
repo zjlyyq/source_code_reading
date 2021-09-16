@@ -13,7 +13,7 @@ let uid = 0
 export default class Dep {
   static target: ?Watcher;
   id: number;
-  subs: Array<Watcher>;
+  subs: Array<Watcher>;  // subs:订阅者们
 
   constructor () {
     this.id = uid++
@@ -27,7 +27,7 @@ export default class Dep {
   removeSub (sub: Watcher) {
     remove(this.subs, sub)
   }
-
+  // 供 Watcher 调用将Dep加到Watcher的Deps中
   depend () {
     if (Dep.target) {
       Dep.target.addDep(this)

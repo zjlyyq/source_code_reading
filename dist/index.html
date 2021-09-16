@@ -9,7 +9,8 @@
   </head>
   <body>
     <div id="app">
-      {{msg}}
+      {{msg.msg}}
+      {{msg.label}}
       <ul>
         <li v-for="item in arr">{{item}}</li>
       </ul>
@@ -24,7 +25,7 @@
         },
         data() {
           return {
-            msg: "World",
+            msg: { msg: "World" },
           };
         },
       });
@@ -33,7 +34,7 @@
         el: "#app",
         data() {
           return {
-            msg: "World",
+            msg: { msg: "World" },
             arr: [1, 2, 3],
           };
         },
@@ -42,6 +43,9 @@
           setTimeout(() => {
             this.arr.push(4);
           }, 0);
+          setTimeout(() => {
+            this.$set(this.msg, 'label', 'label1')
+          }, 2000);
         },
       });
     </script>
